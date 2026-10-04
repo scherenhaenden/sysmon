@@ -1,6 +1,6 @@
 # SysMon
 
-> **Terminal System & Hardware Monitor** with Dual-GPU Support, Fan Telemetry, and an Interactive ASCII Motherboard Visual Locator.
+> **Terminal System & Hardware Monitor** with Dual-GPU Support, Fan Telemetry, Multi-Language UI (EN/ES), and an Interactive ASCII Motherboard Visual Locator.
 
 Inspired by tools like `btop` and `nvtop`, **SysMon** is a lightweight, responsive terminal utility built with Python and [Rich](https://github.com/Textualize/rich).
 
@@ -8,6 +8,10 @@ Inspired by tools like `btop` and `nvtop`, **SysMon** is a lightweight, responsi
 
 ## ✨ Features
 
+- **🌐 Multi-Language Support (i18n)**:
+  - English (`en`) and Spanish (`es`).
+  - Auto-detects system locale from environment.
+  - Dynamically toggle between languages on the fly by pressing **`L`**.
 - **⚡ Dual-GPU & Multi-GPU Monitoring**:
   - Automatically identifies GPUs and maps them to their physical PCIe slots (e.g. Dual AMD Radeon RX 9070 on PCIe Slot #1 and Slot #2).
   - Reports GPU Load %, VRAM usage, Power consumption (Watts), Clock frequencies, and multiple thermal diodes: **Edge**, **Junction (Hotspot)**, and **VRAM Memory**.
@@ -42,12 +46,18 @@ pip install -r requirements.txt
 
 ## 🖥️ Usage
 
-Run the monitor:
+Run the monitor (auto-detects language):
 ```bash
 python3 sysmon.py
 ```
 
-Or launch directly into the **Motherboard Sensor Map**:
+Set language via CLI:
+```bash
+python3 sysmon.py --lang en   # English
+python3 sysmon.py --lang es   # Spanish
+```
+
+Launch directly into the **Motherboard Sensor Map**:
 ```bash
 python3 sysmon.py --map
 ```
@@ -57,6 +67,7 @@ python3 sysmon.py --map
 | Key | Action |
 | :--- | :--- |
 | **`M`** or **`Tab`** | Toggle between **System Monitor** and **Motherboard Sensor Map** |
+| **`L`** | Dynamically toggle language between **English** and **Spanish** |
 | **`↑`** / **`↓`** (or **`k`** / **`j`**) | Navigate between temperature sensors and fans |
 | **`1`** – **`9`** | Directly jump to a specific sensor by number |
 | **`Q`** or **`Ctrl+C`** | Exit cleanly |
